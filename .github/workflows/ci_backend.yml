@@ -1,0 +1,36 @@
+name: Backend CI - Build .NET
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'backend/DoacoesONG/**' # Aciona apenas quando o código no backend muda
+  pull_request:
+    branches:
+      - develop
+      - main # O CI agora será executado para Pull Requests na main
+    paths:
+      - 'backend/DoacoesONG/**'
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Setup do .NET (Versão 8.0)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' 
+
+      - name: 📦 Restore de Dependências (Usando SLN)
+        # O comando dotnet restore no .sln restaura todas as dependências dos projetos na solução.
+        run: dotnet restore DoacaoMariaClaro.sln
+        
+      - name: 🏗️ Compilar o Projeto Backend (Usando SLN)
+        # O comando dotnet build no .sln compila todos os projetos na solução.
+        run: dotnet build DoacaoMariaClaro.sln --configuration Release --no-restore

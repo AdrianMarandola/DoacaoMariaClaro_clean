@@ -1,0 +1,214 @@
+/* Overlay que cobre a tela */
+.modal-overlay {
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Fica acima de outros elementos */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative; /* Para posicionar o botão de fechar */
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh; /* Altura máxima */
+  overflow-y: auto; /* Adiciona scroll se necessário */
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2a4d9b; /* Azul do header do dashboard */
+  text-align: center;
+}
+
+/* Botão de fechar (X) */
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+.modal-close-button:hover {
+  color: #333;
+}
+
+/* Grid para exibir os detalhes */
+.user-details-grid {
+  display: grid;
+  gap: 12px; /* Espaço entre os itens */
+  text-align: left;
+}
+
+.detail-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee; /* Linha separadora sutil */
+}
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item strong {
+  color: #333;
+  margin-right: 8px;
+  display: inline-block;
+  min-width: 100px; /* Alinha os valores */
+}
+
+/* Adiciona um estilo sutil ao botão na tabela */
+.tabela-usuarios .details-button {
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.tabela-usuarios .details-button:hover {
+    background-color: #ddd;
+}
+
+
+/* Adiciona estilo para hover nas linhas da tabela */
+.tabela-usuarios tbody tr:hover {
+    background-color: #f0f8ff; /* Azul claro suave */
+}
+
+/* CSS para os controles de paginação */
+.pagination-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pagination-controls button {
+  background-color: #2a4d9b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  font-weight: bold;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+.user-details-grid {
+  display: grid;
+  gap: 12px; 
+  text-align: left;
+}
+.detail-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee; 
+}
+.detail-item:last-child {
+  border-bottom: none;
+}
+.detail-item strong {
+  color: #333;
+  margin-right: 8px;
+  display: inline-block;
+  min-width: 100px; 
+}
+/* ... (Restante dos seus estilos existentes) ... */
+
+
+/* === ADICIONE OS ESTILOS ABAIXO NO FINAL DO ARQUIVO === */
+
+/* --- Estilos da Paginação Interna do Modal --- */
+.modal-pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+}
+
+.modal-page-button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 3px solid transparent; /* Borda inferior transparente */
+  margin-bottom: -2px; /* Alinha com a borda do container */
+  transition: color 0.2s, border-color 0.2s;
+}
+.modal-page-button:hover {
+  color: #111;
+}
+.modal-page-button.active {
+  color: #2a4d9b; /* Azul */
+  border-bottom-color: #2a4d9b; /* Borda azul quando ativo */
+}
+
+/* --- Estilos do Conteúdo da Página --- */
+.modal-page-content {
+  /* Adiciona uma altura mínima para o conteúdo não "pular" */
+  min-height: 200px; 
+}
+
+/* --- Tabela de Doações (Página 3) --- */
+.modal-tabela-doacoes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.modal-tabela-doacoes th,
+.modal-tabela-doacoes td {
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.modal-tabela-doacoes th {
+  font-weight: 600;
+  color: #333;
+  background-color: #f8f9fa;
+}
+.modal-tabela-doacoes td {
+  color: #555;
+}
+/* Zebra-striping (opcional) */
+.modal-tabela-doacoes tbody tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+/* --- Mensagem de "Nenhum dado" (Página 2 e 3) --- */
+.modal-no-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+  font-style: italic;
+  font-size: 15px;
+}
